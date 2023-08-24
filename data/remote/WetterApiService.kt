@@ -1,10 +1,13 @@
 package com.example.eigenes_projekt_api_rv_mvvm.data.remote
 
+import com.example.eigenes_projekt_api_rv_mvvm.data.model.Current
+import com.example.eigenes_projekt_api_rv_mvvm.data.model.Wetter
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Path
 
 const val BASE_URL = "http://api.weatherstack.com/"
 
@@ -25,11 +28,13 @@ interface WetterApiService {
     /**
      * Diese Funktion spezifiziert die URL uns holt die Liste an Informationen
      */
-    @GET("get_wetter")
-    suspend fun getWetter(): Memes
+    @GET("current?access_key=7467010219284b66a359a022888fefc2&query{city}")
+    suspend fun getWetter(@Path("city")city: String): Wetter
+
+
 }
 
 // Das Objekt dient als Zugangspunkt für den Rest der App und stellt den API Service zur Verfügung
-object MemeApi {
-    val retrofitService: MemeApiService by lazy { retrofit.create(MemeApiService::class.java) }
+object WetterApi {
+    val retrofitService: WetterApiService by lazy { retrofit.create(WetterApiService::class.java) }
 }
