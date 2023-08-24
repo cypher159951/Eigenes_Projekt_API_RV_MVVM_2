@@ -1,6 +1,7 @@
 package com.example.eigenes_projekt_api_rv_mvvm.adapter
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -31,7 +32,7 @@ class WetterAdapter(
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = dataset[position]
-
+        Log.d("Test","${item.location}")
         holder.binding.stadtTV.setText(item.location)
     }
 

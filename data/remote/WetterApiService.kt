@@ -1,6 +1,5 @@
 package com.example.eigenes_projekt_api_rv_mvvm.data.remote
 
-import com.example.eigenes_projekt_api_rv_mvvm.data.model.Current
 import com.example.eigenes_projekt_api_rv_mvvm.data.model.Wetter
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -10,6 +9,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 const val BASE_URL = "http://api.weatherstack.com/"
+
 
 // Moshi konvertiert Serverantworten in Kotlin Objekte
 private val moshi = Moshi.Builder()
