@@ -1,6 +1,5 @@
 package com.example.eigenes_projekt_api_rv_mvvm.data.remote
 
-import com.example.eigenes_projekt_api_rv_mvvm.data.model.Current
 import com.example.eigenes_projekt_api_rv_mvvm.data.model.Wetter
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -30,6 +29,7 @@ private val client: OkHttpClient = OkHttpClient.Builder()
     chain.proceed(newRequest)
 }
     .build()
+
 
 
 
