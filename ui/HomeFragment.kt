@@ -34,7 +34,7 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.wetter.observe(viewLifecycleOwner){
-            binding.steadteRV.adapter = WetterAdapter(it, viewModel, requireContext())
+            binding.staedteRV.adapter = WetterAdapter(it, viewModel, requireContext())
         }
     }
 }

@@ -32,7 +32,7 @@ class WetterAdapter(
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = dataset[position]
 
-        holder.binding.stadtTV.setText(item.location)
+        holder.binding.stadtTV.text = (item.current?.weather_descriptions).toString()
     }
 
 
@@ -41,3 +41,5 @@ class WetterAdapter(
         return dataset.size
     }
 }
+
+

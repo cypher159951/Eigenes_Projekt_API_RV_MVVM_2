@@ -18,7 +18,7 @@ class WetterRepository(private val api: WetterApi) {
 
     suspend fun getWetter() {
         try {
-            _wetter.value = api.retrofitService.getWetter("").current.weather_descriptions
+            _wetter.value = api.retrofitService.getWetter().current?.weather_descriptions
         } catch (e: Exception) {
             Log.e(TAG, "Error loading Data from API: $e")
         }
