@@ -13,7 +13,7 @@ class WetterViewModel : ViewModel() {
     // private val savedWetterTitel: MutableList<String> = mutableListOf()
 
     private val repository = WetterRepository(WetterApi)
-    var wetter: LiveData<List<Wetter>> = repository.wetter
+    var wetter: LiveData<Wetter> = repository.wetter
 
     fun loadData(){
         viewModelScope.launch {
