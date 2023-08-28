@@ -11,14 +11,15 @@ const val TAG = "WetterRepository"
 
 class WetterRepository(private val api: WetterApi) {
 
-    private val _wetter = MutableLiveData<Wetter>()
-    val wetter: LiveData<Wetter>
+    private val _wetter = MutableLiveData<MutableList<Wetter>>()
+    val wetter: LiveData<MutableList<Wetter>>
         get() = _wetter
 
 
     suspend fun getWetter() {
         try {
-            _wetter.value = api.retrofitService.getWetter()
+            if (_wetter.value == null) _wetter.value = mutableListOf()
+            _wetter.value?.add(api.retrofitService.getWetter())
         } catch (e: Exception) {
             Log.e(TAG, "Error loading Data from API: $e")
         }

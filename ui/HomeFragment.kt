@@ -8,8 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.example.eigenes_projekt_api_rv_mvvm.adapter.WetterAdapter
-import com.example.eigenes_projekt_api_rv_mvvm.data.WetterRepository
-import com.example.eigenes_projekt_api_rv_mvvm.data.model.Wetter
 import com.example.eigenes_projekt_api_rv_mvvm.databinding.FragmentHomeBinding
 
 
@@ -36,7 +34,7 @@ class HomeFragment : Fragment() {
 
         viewModel.wetter.observe(viewLifecycleOwner){
             Log.d("Test_Wetter_API", "$it")
-            binding.staedteRV.adapter = WetterAdapter(it, viewModel, requireContext())
+            binding.staedteRV.adapter = WetterAdapter(it)
         }
     }
 }
