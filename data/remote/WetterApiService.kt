@@ -61,18 +61,18 @@ private val client: OkHttpClient = OkHttpClient.Builder()
 
 // Moshi konvertiert Serverantworten in Kotlin Objekte
 private val moshi = Moshi.Builder()
-    .add(KotlinJsonAdapterFactory())
-    .build()
+        .add(KotlinJsonAdapterFactory())
+        .build()
 
-// Retrofit übernimmt die Kommunikation und übersetzt die Antwort
-private val retrofit = Retrofit.Builder()
-    .client(client)
-    .addConverterFactory(MoshiConverterFactory.create(moshi))
-    .baseUrl(BASE_URL)
-    .build()
+    // Retrofit übernimmt die Kommunikation und übersetzt die Antwort
+    private val retrofit = Retrofit.Builder()
+        .client(client)
+        .addConverterFactory(MoshiConverterFactory.create(moshi))
+        .baseUrl(BASE_URL)
+        .build()
 
-// Das Interface bestimmt, wie mit dem Server kommuniziert wird
-interface WetterApiService {
+    // Das Interface bestimmt, wie mit dem Server kommuniziert wird
+    interface WetterApiService {
 
     /**
      * Diese Funktion spezifiziert die URL uns holt die Liste an Informationen
